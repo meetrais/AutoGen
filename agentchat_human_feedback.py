@@ -1,4 +1,5 @@
 import autogen
+import json
 from apikey import apikey
 
 config_list=[{
@@ -32,3 +33,7 @@ Find $a + b + c$, given that $x+y \\neq -1$ and
 """
 
 user_proxy.initiate_chat(assiastnt, message=math_problem_to_solve)
+
+print(autogen.ChatCompletion.logged_history)
+
+json.dump(autogen.ChatCompletion.logged_history, open("conversations.json", "w"), indent=2)
